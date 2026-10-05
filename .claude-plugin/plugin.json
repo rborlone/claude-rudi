@@ -1,6 +1,6 @@
 {
   "name": "rudi",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "RUDI: suite de skills para equipos de desarrollo. Reúne contexto, revisa código y documenta arquitectura con el criterio del equipo, usando la bitácora como memoria.",
   "author": {
     "name": "Rodrigo Borlone"

@@ -26,12 +26,13 @@ Plugin de Claude Code **RUDI**: suite de skills para equipos de desarrollo. Depe
 | 4 · Set de evaluación (`evals/`) | ✅ 5 casos; resultados en `evals/README.md` |
 | 5 · `/rudi:arquitectura` + agente explorador + plantilla MADR | ✅ v0.3.0 |
 | 6 · Piloto del líder | ⏳ |
-| v1.1 · Barandas de producción (`.rudi.json`, hook que pregunta) | ⏳ |
+| v1.1 · Barandas de producción (`hooks/barandas.js`, `.rudi.json`) | ✅ v0.4.0; falta probarlas con casos reales del líder antes de dárselas al equipo |
 
 ## Cómo probar
 
 ```sh
 claude plugin validate .
+npm test                                           # pruebas de las barandas
 evals/correr.sh                                    # corre todos los casos de evaluación
 cd /tmp/caso01 && claude -p "/rudi:revisar" --plugin-dir ~/Proyectos/claude-rudi \
   --allowedTools "Read" "Grep" "Glob" "Bash(git *)" "Agent" "mcp__plugin_bitacora_bitacora__bitacora_buscar"

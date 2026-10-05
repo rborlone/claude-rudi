@@ -20,12 +20,16 @@ que es su memoria.
 | `/rudi:revisar` | ✅ v0.2 | Revisa cambios locales, una rama, un commit o un PR contra criterios en capas (base de RUDI, reglas del proyecto, decisiones del líder). Verifica los hallazgos, los explica según tu nivel y aprende de tus justificaciones |
 | `/rudi:arquitectura` | ✅ v0.3 | Evalúa alternativas, propone ADRs en formato MADR (con reglas que `/rudi:revisar` aplica una vez aceptados), revisa diseños contra la arquitectura actual y gestiona el estado de los ADRs: solo un líder acepta |
 
+Además, RUDI trae **barandas de producción**: antes de que Claude ejecute un comando peligroso contra producción,
+pide tu confirmación y explica por qué (ver [más abajo](#barandas-de-producción)).
+
 El diseño completo está en [`docs/diseno.md`](docs/diseno.md).
 
 ## Requisitos
 
 - Claude Code
 - El plugin **bitácora** (memoria y búsqueda de documentación). Sin él, RUDI funciona, pero solo con el repo y las fuentes que le pases.
+- Node.js en el `PATH` (lo usan las barandas; la bitácora ya lo exige).
 
 ## Instalación
 
@@ -100,11 +104,43 @@ Para que RUDI encuentre la documentación de tu equipo, indéxala una vez en la 
 
 > *"Indexa la wiki que está en ~/Proyectos/MiProyecto/wiki"*
 
+## Barandas de producción
+
+Antes de cada comando de Bash, RUDI revisa si es peligroso. Si lo es, **pide confirmación** con el motivo; no lo
+bloquea, y tú decides. Los comandos de solo lectura nunca preguntan.
+
+| Pregunta antes de… | Cuándo |
+|---|---|
+| `kubectl` que modifica (`delete`, `apply`, `scale`, `rollout restart`…) y `helm install/upgrade/uninstall/rollback` | En un contexto o namespace de producción |
+| `terraform`/`tofu` `destroy`, `state rm/mv`, `taint`, `force-unlock` | Siempre |
+| `terraform apply` | En un workspace de producción, o siempre si el proyecto no los declara |
+| `DROP`, `TRUNCATE`, `ALTER TABLE … DROP`, `DELETE`/`UPDATE` sin `WHERE` con `sqlcmd`, `psql`, `mysql`… (también dentro de un `-i archivo.sql`) | Siempre; el motivo dice si el servidor es de producción |
+| `git push --force` | A una rama protegida (`main` y `master` por defecto) |
+| `az … delete` | Siempre |
+
+Cada proyecto declara qué es producción en un `.rudi.json` en la raíz del repo (versionado):
+
+```json
+{
+  "produccion": {
+    "kube_contextos": ["aks-miapp-prod"],
+    "kube_namespaces": ["pagos", "*-prod"],
+    "sql_servidores": ["sql-miapp-prod.database.windows.net"],
+    "terraform_workspaces": ["prod"],
+    "ramas_protegidas": ["main", "release/*"]
+  }
+}
+```
+
+Sin `.rudi.json`, se considera de producción todo contexto, namespace o servidor cuyo nombre contenga `prod`, `prd`,
+`production` o `produccion`. Las listas admiten `*` como comodín.
+
 ## Desarrollo
 
 ```sh
 claude --plugin-dir .            # probar el plugin local sin instalarlo
 claude plugin validate .         # validar los manifiestos
+npm test                         # pruebas de las barandas
 ```
 
 Los casos de evaluación están en [`evals/casos/`](evals/casos/): cada uno arma un repo de prueba con problemas

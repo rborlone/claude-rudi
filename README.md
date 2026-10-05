@@ -17,7 +17,7 @@ que es su memoria.
 | Skill | Estado | Qué hace |
 |---|---|---|
 | `/rudi:contexto` | ✅ v0.1 | Reúne lo que hay que saber de un tema: bitácora, wikis indexadas, ADRs, el repo y las fuentes que pases. Entrega una ficha con la fuente de cada dato y lo que falta saber |
-| `/rudi:revisar` | En construcción | Revisa cambios contra criterios en capas (base de RUDI, reglas del proyecto, decisiones del líder) en modo mentor |
+| `/rudi:revisar` | ✅ v0.2 | Revisa cambios locales, una rama, un commit o un PR contra criterios en capas (base de RUDI, reglas del proyecto, decisiones del líder). Verifica los hallazgos, los explica según tu nivel y aprende de tus justificaciones |
 | `/rudi:arquitectura` | En construcción | ADRs en formato MADR, evaluación de alternativas y revisión de diseños |
 
 El diseño completo está en [`docs/diseno.md`](docs/diseno.md).
@@ -61,7 +61,16 @@ En cualquier momento puedes pedir más ("explícame esto") o menos.
 /rudi:contexto merge de PDFs que fallaba con KeyNotFoundException
 /rudi:contexto migración a .NET 8 ~/docs/plan-migracion.md
 /rudi:contexto qué sabemos del DRP de la base de datos
+
+/rudi:revisar                          # tu rama contra su base, más lo no commiteado
+/rudi:revisar PR 1234
+/rudi:revisar feature/pagos --mentor   # explicación completa aunque seas senior
+/rudi:revisar foco: seguridad
 ```
+
+Los criterios están en [`skills/revisar/criterios/`](skills/revisar/criterios/). Cada proyecto puede anularlos,
+cambiar su gravedad o agregar los suyos desde una sección `## RUDI` en su `CLAUDE.md`. Cuando respondes que algo está
+bien así y das el motivo, RUDI lo guarda en la bitácora y no lo vuelve a marcar.
 
 Para que RUDI encuentre la documentación de tu equipo, indéxala una vez en la bitácora:
 
@@ -73,3 +82,6 @@ Para que RUDI encuentre la documentación de tu equipo, indéxala una vez en la 
 claude --plugin-dir .            # probar el plugin local sin instalarlo
 claude plugin validate .         # validar los manifiestos
 ```
+
+Los casos de evaluación están en [`evals/casos/`](evals/casos/): cada uno arma un repo de prueba con problemas
+conocidos (`armar.sh`) y describe qué debería encontrar una buena revisión (`esperado.md`).

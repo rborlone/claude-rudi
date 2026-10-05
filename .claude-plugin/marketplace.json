@@ -1,0 +1,12 @@
+{
+  "name": "claude-rudi",
+  "owner": { "name": "Rodrigo Borlone" },
+  "description": "RUDI: suite de skills para equipos de desarrollo.",
+  "plugins": [
+    {
+      "name": "rudi",
+      "source": "./",
+      "description": "Contexto, revisión de código y arquitectura con el criterio del equipo."
+    }
+  ]
+}

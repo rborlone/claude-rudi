@@ -1,0 +1,8 @@
+{
+  "name": "rudi",
+  "version": "0.1.0",
+  "description": "RUDI: suite de skills para equipos de desarrollo. Reúne contexto, revisa código y documenta arquitectura con el criterio del equipo, usando la bitácora como memoria.",
+  "author": { "name": "Rodrigo Borlone" },
+  "repository": "https://github.com/rborlone/claude-rudi",
+  "keywords": ["equipo", "revision", "arquitectura", "adr", "contexto", "mentor"]
+}

@@ -23,7 +23,7 @@ Plugin de Claude Code **RUDI**: suite de skills para equipos de desarrollo. Depe
 | 1 · Plugin + `/rudi:contexto` | ✅ |
 | 2 · Criterios base (`skills/revisar/criterios/`) | ✅ borrador; el líder aún no lo corrige |
 | 3 · `/rudi:revisar` + agente `revisor` | ✅ v0.2.0; caso 01: 10/10 |
-| 4 · Set de evaluación | 🔄 1 caso de ~5 (faltan React, SQL, uno limpio para falsos positivos, uno en lenguaje sin módulo) |
+| 4 · Set de evaluación (`evals/`) | ✅ 5 casos; resultados en `evals/README.md` |
 | 5 · `/rudi:arquitectura` + agente explorador + plantilla MADR | ✅ v0.3.0 |
 | 6 · Piloto del líder | ⏳ |
 | v1.1 · Barandas de producción (`.rudi.json`, hook que pregunta) | ⏳ |
@@ -32,7 +32,7 @@ Plugin de Claude Code **RUDI**: suite de skills para equipos de desarrollo. Depe
 
 ```sh
 claude plugin validate .
-evals/casos/01-api-pagos/armar.sh /tmp/caso01     # arma el repo de prueba
+evals/correr.sh                                    # corre todos los casos de evaluación
 cd /tmp/caso01 && claude -p "/rudi:revisar" --plugin-dir ~/Proyectos/claude-rudi \
   --allowedTools "Read" "Grep" "Glob" "Bash(git *)" "Agent" "mcp__plugin_bitacora_bitacora__bitacora_buscar"
 ```

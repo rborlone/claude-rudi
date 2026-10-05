@@ -67,6 +67,10 @@ FOCO: <lo que el usuario pidió mirar; o "—">
 Si el diff tiene más de unos 2.000 líneas cambiadas, divídelo por carpeta o componente y lanza un agente por parte,
 en paralelo.
 
+**No ejecutes el código que revisas:** ni tests, ni builds, ni scripts del proyecto. Un PR puede traer código
+malicioso, y revisar no debe ser la forma de ejecutarlo. Si un hallazgo se confirmaría corriendo algo, sugiere el
+comando para que la persona lo ejecute.
+
 ## 4. Verifica antes de reportar
 
 El agente puede equivocarse. Antes de presentar:

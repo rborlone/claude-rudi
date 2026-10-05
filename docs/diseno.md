@@ -18,7 +18,7 @@ Diseño acordado el 2026-10-04. Cada decisión está también en la bitácora co
 | 4 | Búsqueda | Los markdown se **indexan en la bitácora** (`bitacora_indexar`). `bitacora_buscar` busca en memorias, conversaciones y documentos a la vez. Búsqueda semántica solo si hace falta |
 | 5 | Alcance v1 | `contexto`, `revisar` y `arquitectura` |
 | 6 | Nombre | **RUDI** (`rudi`): `/rudi:contexto`, `/rudi:revisar`, `/rudi:arquitectura`. Repo `claude-rudi` |
-| 7 | Criterios de revisión | **En capas**: (1) base RUDI por tecnología; (2) el proyecto (`CLAUDE.md`, wiki, ADRs) agrega o anula reglas; (3) lo que el líder justifica en una revisión se guarda en la bitácora y no se vuelve a marcar. La base se deriva del código real y el líder la corrige |
+| 7 | Criterios de revisión | **En capas**: (1) base RUDI = núcleo **agnóstico del lenguaje** respaldado por estándares (OWASP, guías oficiales) + módulos por tecnología que se activan si se detectan; (2) el proyecto (`CLAUDE.md`, wiki, ADRs) agrega o anula reglas por ID; (3) lo que el líder justifica en una revisión se guarda en la bitácora y no se vuelve a marcar. La base **no** se deriva del código existente: no es referencia de buen diseño. Lo que se encuentre en él pasa a ser casos de evaluación |
 | 8 | Modo mentor | **Por nivel de persona**, declarado una vez en su config personal: *junior* (porqué, ejemplo y fuente), *semi senior* (porqué en una línea), *senior* (directo, por gravedad). Ajustable en el momento. Cada observación cita su fuente |
 | 9 | Distribución | RUDI en el GitHub personal del líder, **sin nada confidencial**. Lo de cada empresa vive en sus repos, que declaran RUDI en `.claude/settings.json`. Los criterios derivados de código de una empresa se escriben de forma genérica |
 | 10 | Agentes | v1 reconstruye solo dos: **revisor** (reemplaza code-reviewer y security) y **explorador de arquitectura** (reemplaza architect). El resto, en v2 con `feature` |
@@ -47,7 +47,7 @@ claude-rudi/
 |---|---|---|
 | 0 | Indexar documentos: tabla de documentos, `bitacora_indexar`, búsqueda unificada | bitácora v0.3 |
 | 1 | Esqueleto del plugin y `/rudi:contexto` | RUDI |
-| 2 | Criterios base: analizar repos reales → borrador genérico → corrección del líder | RUDI |
+| 2 | Criterios base: núcleo agnóstico + módulos por tecnología, desde estándares → corrección del líder | RUDI |
 | 3 | Agente revisor, `/rudi:revisar` y modo mentor | RUDI |
 | 4 | Set de evaluación con PRs reales | RUDI |
 | 5 | `/rudi:arquitectura`, explorador de arquitectura y plantilla MADR | RUDI |

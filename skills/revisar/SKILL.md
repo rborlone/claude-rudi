@@ -40,7 +40,9 @@ módulo, anótalo para decirlo en el resultado.
 
 **Capa 2, proyecto:**
 - La sección `## RUDI` del `CLAUDE.md` del proyecto, si existe (anulaciones, gravedades, criterios propios).
-- Los ADR **aceptados** en `docs/adr/` (o `doc/adr/`, `adr/`) que traten temas del diff.
+- Los ADR **aceptados** en `docs/adr/` (o `doc/adr/`, `adr/`) y en la carpeta `adr-transversales` que defina el
+  `CLAUDE.md`, cuando traten temas del diff. Su sección `## RUDI` agrega o anula criterios igual que el `CLAUDE.md`.
+  Los ADR propuestos o reemplazados no cuentan.
 - La documentación del equipo en la bitácora: `bitacora_buscar` con los temas del cambio (por ejemplo "autenticación",
   "logging", el nombre del módulo) para encontrar convenciones y ADRs transversales de la wiki.
 
@@ -122,6 +124,15 @@ Los medios y las sugerencias van siempre en una línea, en todos los niveles. Si
 
 Señala con "(confianza media)" los hallazgos que dependen de algo que no se pudo ver, y di qué habría que revisar
 para confirmarlos.
+
+## Información de otros proyectos
+
+La bitácora guarda memorias y documentos de **todos** los proyectos de la persona, que pueden ser de clientes
+distintos. Lo que encuentres de **otro proyecto** sirve para razonar ("este patrón ya dio problemas"), pero **no se
+copia en lo que se entrega en este proyecto** (ADRs, comentarios de PR, documentos, código): ni nombres de clientes,
+servicios o repos, ni detalles de su infraestructura o sus hallazgos. Si aporta, cítalo de forma genérica
+("un middleware JWT propio con este diseño ejecuta la petición dos veces"). En la conversación sí puedes nombrar el
+origen, para que la persona sepa de dónde sale.
 
 ## 6. Aprende de las respuestas
 

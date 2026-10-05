@@ -101,6 +101,15 @@ Si la configuración personal del usuario declara su nivel (por ejemplo `rudi: n
 
 Sin nivel declarado, usa el formato estándar.
 
+## Información de otros proyectos
+
+La bitácora guarda memorias y documentos de **todos** los proyectos de la persona, que pueden ser de clientes
+distintos. Lo que encuentres de **otro proyecto** sirve para razonar ("este patrón ya dio problemas"), pero **no se
+copia en lo que se entrega en este proyecto** (ADRs, comentarios de PR, documentos, código): ni nombres de clientes,
+servicios o repos, ni detalles de su infraestructura o sus hallazgos. Si aporta, cítalo de forma genérica
+("un middleware JWT propio con este diseño ejecuta la petición dos veces"). En la conversación sí puedes nombrar el
+origen, para que la persona sepa de dónde sale.
+
 ## Después de la ficha
 
 - Si el usuario corrige o agrega algo importante (un hecho, una decisión, un dato que no estaba escrito), ofrece

@@ -24,7 +24,7 @@ Plugin de Claude Code **RUDI**: suite de skills para equipos de desarrollo. Depe
 | 2 · Criterios base (`skills/revisar/criterios/`) | ✅ borrador; el líder aún no lo corrige |
 | 3 · `/rudi:revisar` + agente `revisor` | ✅ v0.2.0; caso 01: 10/10 |
 | 4 · Set de evaluación | 🔄 1 caso de ~5 (faltan React, SQL, uno limpio para falsos positivos, uno en lenguaje sin módulo) |
-| 5 · `/rudi:arquitectura` + agente explorador + plantilla MADR | ⏳ siguiente |
+| 5 · `/rudi:arquitectura` + agente explorador + plantilla MADR | ✅ v0.3.0 |
 | 6 · Piloto del líder | ⏳ |
 | v1.1 · Barandas de producción (`.rudi.json`, hook que pregunta) | ⏳ |
 

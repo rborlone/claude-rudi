@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" width="320" height="300" role="img" aria-labelledby="t d">
+  <title id="t">RUDI</title>
+  <desc id="d">Computadora retrofuturista de los años 60 con cara amigable, carretes de cinta y luces.</desc>
+  <defs>
+    <linearGradient id="cuerpo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5fd3c6"/>
+      <stop offset="1" stop-color="#2a9d8f"/>
+    </linearGradient>
+    <linearGradient id="pantalla" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d3557"/>
+      <stop offset="1" stop-color="#0b1d33"/>
+    </linearGradient>
+    <radialGradient id="brillo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe9a8"/>
+      <stop offset="1" stop-color="#ffb703" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Antena con órbita -->
+  <line x1="160" y1="40" x2="160" y2="70" stroke="#264653" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="160" cy="30" rx="26" ry="8" fill="none" stroke="#f4a261" stroke-width="3" transform="rotate(-18 160 30)"/>
+  <circle cx="160" cy="30" r="11" fill="#e76f51"/>
+  <circle cx="156" cy="26" r="3.5" fill="#fff" opacity="0.7"/>
+
+  <!-- Cuerpo -->
+  <path d="M40 92 Q40 68 66 68 H254 Q280 68 280 92 V262 H40 Z" fill="url(#cuerpo)" stroke="#264653" stroke-width="5" stroke-linejoin="round"/>
+  <rect x="40" y="250" width="240" height="14" fill="#264653"/>
+  <!-- Patas -->
+  <path d="M70 264 L62 286 H98 L92 264 Z" fill="#264653"/>
+  <path d="M228 264 L222 286 H258 L250 264 Z" fill="#264653"/>
+
+  <!-- Pantalla con cara -->
+  <rect x="92" y="84" width="136" height="88" rx="18" fill="url(#pantalla)" stroke="#264653" stroke-width="5"/>
+  <ellipse cx="132" cy="120" rx="11" ry="13" fill="#8ef0ff"/>
+  <ellipse cx="188" cy="120" rx="11" ry="13" fill="#8ef0ff"/>
+  <circle cx="135" cy="116" r="4" fill="#fff"/>
+  <circle cx="191" cy="116" r="4" fill="#fff"/>
+  <path d="M136 146 Q160 164 184 146" fill="none" stroke="#8ef0ff" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="116" cy="146" rx="8" ry="4" fill="#f28482" opacity="0.6"/>
+  <ellipse cx="204" cy="146" rx="8" ry="4" fill="#f28482" opacity="0.6"/>
+
+  <!-- Carretes de cinta -->
+  <g stroke="#264653" stroke-width="4">
+    <circle cx="68" cy="128" r="20" fill="#f1faee"/>
+    <circle cx="252" cy="128" r="20" fill="#f1faee"/>
+  </g>
+  <g fill="#264653">
+    <circle cx="68" cy="128" r="6"/>
+    <circle cx="252" cy="128" r="6"/>
+    <circle cx="68" cy="115" r="4"/><circle cx="57" cy="135" r="4"/><circle cx="79" cy="135" r="4"/>
+    <circle cx="252" cy="115" r="4"/><circle cx="241" cy="135" r="4"/><circle cx="263" cy="135" r="4"/>
+  </g>
+
+  <!-- Panel de luces -->
+  <rect x="64" y="186" width="192" height="52" rx="10" fill="#264653"/>
+  <g>
+    <circle cx="86" cy="202" r="12" fill="url(#brillo)"/>
+    <circle cx="86" cy="202" r="6" fill="#ffb703"/>
+    <circle cx="112" cy="202" r="6" fill="#e76f51"/>
+    <circle cx="138" cy="202" r="6" fill="#8ef0ff"/>
+    <circle cx="164" cy="202" r="12" fill="url(#brillo)"/>
+    <circle cx="164" cy="202" r="6" fill="#ffb703"/>
+    <circle cx="190" cy="202" r="6" fill="#8ef0ff"/>
+    <circle cx="216" cy="202" r="6" fill="#e76f51"/>
+    <circle cx="238" cy="202" r="6" fill="#ffb703"/>
+  </g>
+  <g fill="#f1faee">
+    <rect x="80" y="220" width="40" height="8" rx="4"/>
+    <rect x="128" y="220" width="22" height="8" rx="4"/>
+    <rect x="158" y="220" width="56" height="8" rx="4"/>
+    <rect x="222" y="220" width="22" height="8" rx="4"/>
+  </g>
+
+  <!-- Placa -->
+  <text x="160" y="80" text-anchor="middle" font-family="Futura, 'Trebuchet MS', Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="3" fill="#264653">R.U.D.I.</text>
+</svg>

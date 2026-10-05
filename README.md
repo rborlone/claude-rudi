@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/rudi.svg" alt="RUDI" width="220"></p>
+
 # RUDI
 
 > **R.U.D.I.**: *Referential Universal Digital Indexer*, la computadora de la oficina de George en Los Supersónicos.
